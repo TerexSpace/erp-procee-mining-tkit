@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "erp-processminer"
+version = "0.1.0"
+authors = [
+  { name="Expert Software Architect", email="author@example.com" },
+]
+description = "A toolkit for process mining on ERP event logs"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "pandas",
+    "numpy",
+    "networkx",
+    "matplotlib",
+    "graphviz",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/example/erp-processminer"
+"Bug Tracker" = "https://github.com/example/erp-processminer/issues"
+
+[project.scripts]
+erp-processminer = "erp_processminer.cli:main"
