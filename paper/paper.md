@@ -14,9 +14,9 @@ authors:
 affiliations:
  - name: Astana IT University, Kazakhstan
    index: 1
-   ror: 00000000000000000
-date: 27 November 2025
+   date: 27 November 2025
 bibliography: paper.bib
+https://github.com/TerexSpace/erp-procee-mining-tkit.git
 ---
 
 # Summary
