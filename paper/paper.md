@@ -17,6 +17,7 @@ affiliations:
    date: 27 November 2025
 bibliography: paper.bib
 https://github.com/TerexSpace/erp-procee-mining-tkit.git
+DOI: https://doi.org/10.5281/zenodo.17739836
 ---
 
 # Summary
