@@ -20,6 +20,8 @@ def generate_dashboard(log: EventLog, output_file: str = 'dashboard.html'):
     
     cycle_times = get_cycle_times(log)
     variants = get_variant_performance(log)
+
+    avg_cycle_time = sum(cycle_times) / len(cycle_times) if cycle_times else 0.0
     
     # Sort variants by frequency
     sorted_variants = sorted(variants.items(), key=lambda item: item[1]['frequency'], reverse=True)
@@ -45,7 +47,7 @@ def generate_dashboard(log: EventLog, output_file: str = 'dashboard.html'):
         <p>Total Events: {len(log.all_events)}</p>
         
         <h2>Performance</h2>
-        <p>Average Cycle Time: {sum(cycle_times) / len(cycle_times):.2f} seconds</p>
+        <p>Average Cycle Time: {avg_cycle_time:.2f} seconds</p>
         
         <h2>Top 10 Process Variants</h2>
         <table>

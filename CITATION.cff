@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use ERP-ProcessMiner in your research, please cite it as below."
+title: "ERP-ProcessMiner: A toolkit for process mining on ERP event logs"
+version: "0.1.0"
+date-released: 2025-11-27
+authors:
+  - family-names: "Your Last Name"
+    given-names: "Your First Name"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    email: "your.email@example.com"
+    affiliation: "Your Institution"
+repository-code: "https://github.com/TerexSpace/erp-process-mining-tkit"
+url: "https://github.com/TerexSpace/erp-process-mining-tkit"
+license: MIT
+keywords:
+  - process mining
+  - ERP
+  - event logs
+  - business process management
+  - Python
+abstract: |
+  ERP-ProcessMiner is a Python toolkit that transforms relational ERP exports into
+  canonical event logs and applies core process mining techniques for discovery,
+  conformance, and performance analysis. The package offers an end-to-end workflow
+  from declarative mapping of ERP tables through log construction to model discovery,
+  evaluation, and visualization.
+preferred-citation:
+  type: software
+  title: "ERP-ProcessMiner: A toolkit for process mining on ERP event logs"
+  version: "0.1.0"
+  url: "https://github.com/TerexSpace/erp-process-mining-tkit"
+  year: 2025
+  authors:
+    - family-names: "Your Last Name"
+      given-names: "Your First Name"
+      orcid: "https://orcid.org/0000-0000-0000-0000"

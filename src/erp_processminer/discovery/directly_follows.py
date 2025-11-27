@@ -22,6 +22,7 @@ def discover_dfg(log: EventLog) -> Tuple[DFG, Dict[str, int], Dict[str, int]]:
     dfg = DFG()
     start_activities: Counter[str] = Counter()
     end_activities: Counter[str] = Counter()
+    activity_frequencies: Counter[str] = Counter()
 
     # Add all unique activities as nodes first
     all_activities = {event.activity for trace in log for event in trace}
@@ -35,6 +36,8 @@ def discover_dfg(log: EventLog) -> Tuple[DFG, Dict[str, int], Dict[str, int]]:
         # Register start and end activities
         start_activities[trace.events[0].activity] += 1
         end_activities[trace.events[-1].activity] += 1
+        for event in trace:
+            activity_frequencies[event.activity] += 1
 
         # Build the DFG edges
         for i in range(len(trace.events) - 1):
@@ -52,11 +55,12 @@ def discover_dfg(log: EventLog) -> Tuple[DFG, Dict[str, int], Dict[str, int]]:
     dfg.finalize() # Compute average durations
     
     # Add frequencies to the nodes
-    for activity, freq in (start_activities + end_activities).items():
+    for activity, freq in activity_frequencies.items():
         if dfg.graph.has_node(activity):
             dfg.graph.nodes[activity]['frequency'] = freq
 
     dfg.start_activities = dict(start_activities)
     dfg.end_activities = dict(end_activities)
+    dfg.activity_frequencies = dict(activity_frequencies)
 
     return dfg, dict(start_activities), dict(end_activities)

@@ -25,6 +25,8 @@ def apply_mapping(
     """
     all_events: List[Event] = []
     case_id_col = config['case_id']
+    if not case_id_col:
+        raise ValueError("Mapping configuration must define a non-empty 'case_id' column.")
     
     # Heuristic to find the right dataframe for each table config
     df_map = {df.columns.name if df.columns.name else f"df_{i}": df for i, df in enumerate(dataframes)}
@@ -45,12 +47,17 @@ def apply_mapping(
         df = df_map[table_name]
         
         # Ensure required columns exist
-        required_cols = [
+        required_cols = {
+            case_id_col,
             table_config['entity_id'], 
-            table_config['timestamp']
-        ]
-        if not all(col in df.columns for col in required_cols):
-            raise ValueError(f"DataFrame for '{table_name}' is missing required columns: {required_cols}")
+            table_config['timestamp'],
+        }
+        missing_cols = [col for col in required_cols if col not in df.columns]
+        if missing_cols:
+            raise ValueError(
+                f"DataFrame for '{table_name}' is missing required columns: {missing_cols}. "
+                f"Available columns: {list(df.columns)}"
+            )
 
         for _, row in df.iterrows():
             # Activity can be a static string or a column name
@@ -60,13 +67,19 @@ def apply_mapping(
             else:
                 activity = row[activity_source]
 
+            excluded_cols = {
+                case_id_col,
+                table_config['entity_id'],
+                table_config['timestamp'],
+            }
+
             event = Event(
                 case_id=str(row[case_id_col]),
                 activity=str(activity),
                 timestamp=pd.to_datetime(row[table_config['timestamp']]),
                 attributes={
                     'source_table': table_name,
-                    **{k: v for k, v in row.items() if k not in required_cols}
+                    **{k: v for k, v in row.items() if k not in excluded_cols}
                 }
             )
             all_events.append(event)

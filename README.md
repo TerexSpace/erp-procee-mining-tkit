@@ -1,40 +1,31 @@
 # ERP-ProcessMiner: A toolkit for process mining on ERP event logs
 
-[![JOSS status](https://joss.theoj.org/papers/10.21105/joss.01234/status.svg)](https://joss.theoj.org/papers/10.21105/joss.01234)
 [![PyPI version](https://badge.fury.io/py/erp-processminer.svg)](https://badge.fury.io/py/erp-processminer)
+[![Tests](https://github.com/TerexSpace/erp-process-mining-tkit/actions/workflows/tests.yml/badge.svg)](https://github.com/TerexSpace/erp-process-mining-tkit/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-`ERP-ProcessMiner` is a Python toolkit for process mining on relational data from Enterprise Resource Planning (ERP) systems. It provides a workflow to transform ERP tables into event logs and apply core process mining algorithms for discovery, conformance, and performance analysis. It enables researchers and practitioners to easily extract process-centric insights from complex ERP database schemas.
-
-## JOSS Paper
-
-For a detailed academic overview, please see our paper published in the Journal of Open Source Software (JOSS).
+`ERP-ProcessMiner` transforms relational ERP exports into event logs and applies core process mining algorithms for discovery, conformance, and performance analysis. It is designed for researchers, educators, and practitioners who need a lightweight way to bridge ERP schemas with process mining tooling.
 
 ## Key Features
 
-- **ERP Data Transformation**: Load relational tables and map them to event logs with flexible definitions for case ID, activity, and timestamp.
-- **Process Discovery**: Discover process models from event logs using algorithms like Directly-Follows Graphs and a Heuristics Miner.
-- **Conformance Checking**: Analyze deviations between a process model and an event log using token-based replay.
-- **Performance Analysis**: Compute key performance indicators such as cycle times, waiting times, and identify process variants.
-- **Visualization**: Generate graphical representations of process models and performance dashboards.
+- **ERP Data Transformation**: Map relational tables to event logs with flexible definitions for case IDs, activities, and timestamps.
+- **Process Discovery**: Discover process models via Directly-Follows Graphs (DFG) and a simplified Heuristics Miner.
+- **Conformance Checking**: Token-based replay to quantify deviations between a log and a Petri net.
+- **Performance Analysis**: Cycle times, waiting times, and variant statistics for rapid diagnostics.
+- **Visualization**: Graphviz-based DFG and Petri net renderings plus a lightweight HTML dashboard.
 
 ## Installation
 
-You can install `erp-processminer` via pip:
-
 ```bash
 pip install erp-processminer
+# Optional: install Graphviz system binaries for visualization output
 ```
 
-**Note on Graphviz**: To use the visualization features, you must also install the Graphviz software. Please see the [Graphviz download page](https://graphviz.org/download/) for instructions for your operating system. Make sure to add Graphviz to your system's PATH.
+The Graphviz Python package is installed automatically, but you also need the Graphviz system executable in your `PATH` to render images. See the [Graphviz download page](https://graphviz.org/download/) for OS-specific instructions.
 
-## Quickstart Example
+## Usage
 
-This example demonstrates how to load ERP-style data (from CSV files), transform it into an event log, and discover a Directly-Follows Graph (DFG).
-
-Assume you have two CSV files: `purchase_orders.csv` and `goods_receipts.csv`.
-
-**1. Load ERP Data**
+### Python API
 
 ```python
 import pandas as pd
@@ -42,47 +33,76 @@ from erp_processminer.io_erp import loaders, mappings
 from erp_processminer.discovery import directly_follows
 from erp_processminer.visualization import graphs
 
-# Load raw data from CSV files into pandas DataFrames
-po_df = loaders.load_erp_data('purchase_orders.csv')
-gr_df = loaders.load_erp_data('goods_receipts.csv')
+po_df = loaders.load_erp_data("purchase_orders.csv")
+gr_df = loaders.load_erp_data("goods_receipts.csv")
 
-# Define a mapping configuration
-# This tells the tool how to create an event log from the tables.
 config = {
-    'case_id': 'PO_NUMBER',
-    'tables': {
-        'purchase_orders': {
-            'entity_id': 'PO_NUMBER',
-            'activity': "'Create Purchase Order'", # Static activity name
-            'timestamp': 'CREATION_DATE'
-        },
-        'goods_receipts': {
-            'entity_id': 'PO_NUMBER',
-            'activity': "'Receive Goods'",
-            'timestamp': 'RECEIPT_DATE'
-        }
-    }
+    "case_id": "PO_NUMBER",
+    "tables": {
+        "purchase_orders": {"entity_id": "PO_NUMBER", "activity": "'Create PO'", "timestamp": "CREATION_DATE"},
+        "goods_receipts": {"entity_id": "PO_NUMBER", "activity": "'Receive Goods'", "timestamp": "RECEIPT_DATE"},
+    },
 }
 
-# 2. Transform to Event Log
 event_log = mappings.apply_mapping([po_df, gr_df], config)
-
-print(f"Successfully created an event log with {len(event_log)} traces and {sum(len(t) for t in event_log)} events.")
-
-# 3. Discover a Directly-Follows Graph
-dfg, start_activities, end_activities = directly_follows.discover_dfg(event_log)
-
-# 4. Visualize the DFG
-# This will generate a file named 'dfg.png'
-graphs.visualize_dfg(dfg, start_activities, end_activities, output_file='dfg.png')
-
-print("Discovered and visualized the Directly-Follows Graph at 'dfg.png'.")
+dfg, start_acts, end_acts = directly_follows.discover_dfg(event_log)
+graphs.visualize_dfg(dfg, start_acts, end_acts, output_file="dfg")
 ```
 
-## Contributing
+### Command-line interface
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+```bash
+# Transform ERP CSV files into an event log
+erp-processminer erp-to-log mapping.json purchase_orders.csv goods_receipts.csv -o log.csv
+
+# Discover a DFG and render it
+erp-processminer discover log.csv --method dfg -o dfg.png
+```
+
+## Testing
+
+Install test dependencies and run the suite:
+
+```bash
+pip install -e .[tests]
+pytest
+```
+
+## Documentation
+
+- Tutorials and guides live in `docs/` (see `docs/index.md` for an entry point).
+- A worked example is available in `examples/erp_to_eventlog_p2p.py`.
+
+## Citing
+
+If you use the toolkit in academic work, please see `CITATION.cff` for citation information.
+
+## Community Guidelines
+
+We welcome contributions from the community! Here's how you can get involved:
+
+### Contributing
+
+- **Report bugs**: Open an issue in our [issue tracker](https://github.com/TerexSpace/erp-process-mining-tkit/issues) with a clear description and reproducible example
+- **Suggest features**: Propose new features or enhancements through GitHub issues
+- **Submit pull requests**: Fork the repository, make your changes, and submit a PR. Please ensure:
+  - Your code follows the existing style and conventions
+  - Tests are included for new functionality
+  - Documentation is updated as needed
+  - All tests pass before submission
+
+For detailed contribution guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### Getting Support
+
+- **Documentation**: Start with the tutorials in `docs/` and example code in `examples/`
+- **Issues**: Search existing issues or create a new one for questions and problems
+- **Discussions**: Use GitHub Discussions for general questions and community interaction
+
+### Code of Conduct
+
+This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md) that establishes expected behavior for all community members. We are committed to providing a welcoming and inclusive environment for everyone.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License (see `LICENSE`).

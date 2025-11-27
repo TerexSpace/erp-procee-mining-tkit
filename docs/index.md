@@ -12,7 +12,7 @@ If you are new to the project, the best place to start is the `README.md` file i
 
 The following tutorials provide a more in-depth guide to using the toolkit for common process mining tasks:
 
-- **[Tutorial 1: From ERP Data to an Event Log (Procure-to-Pay)] (tutorials/p2p_from_erp_logs.ipynb)**: This tutorial walks through the process of loading relational ERP data for a procure-to-pay process, transforming it into an event log, and discovering a process model.
+- **[Tutorial 1: From ERP Data to an Event Log (Procure-to-Pay)](tutorials/p2p_from_erp_logs.ipynb)**: This tutorial walks through the process of loading relational ERP data for a procure-to-pay process, transforming it into an event log, and discovering a process model.
 
 - **[Tutorial 2: Conformance Checking (Order-to-Cash)](tutorials/o2c_conformance.ipynb)**: This tutorial demonstrates how to perform conformance checking to compare a process model with an event log for an order-to-cash process.
 

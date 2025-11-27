@@ -4,7 +4,6 @@ event logs, such as cycle times and waiting times.
 """
 
 from typing import List, Dict, Tuple
-import pandas as pd
 from erp_processminer.eventlog.structures import EventLog, Trace, Event
 
 def calculate_cycle_time(trace: Trace) -> float | None:

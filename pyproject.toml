@@ -6,17 +6,24 @@ build-backend = "setuptools.build_meta"
 name = "erp-processminer"
 version = "0.1.0"
 authors = [
-  { name="Expert Software Architect", email="expert@software.com" },
+  { name="Your Name", email="your.email@example.com" },
 ]
 description = "A toolkit for process mining on ERP event logs"
 readme = "README.md"
 requires-python = ">=3.11"
+license = {file = "LICENSE"}
+keywords = ["process mining", "ERP", "event logs", "business process management", "workflow analysis"]
 classifiers = [
+    "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
     "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
     "pandas",
@@ -27,8 +34,14 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/TerexSpace/erp-procee-mining-tkit"
-"Bug Tracker" = "https://github.com/TerexSpace/erp-procee-mining-tkit/issues"
+"Homepage" = "https://github.com/TerexSpace/erp-process-mining-tkit"
+"Bug Tracker" = "https://github.com/TerexSpace/erp-process-mining-tkit/issues"
 
 [project.scripts]
 erp-processminer = "erp_processminer.cli:main"
+
+[project.optional-dependencies]
+tests = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+]

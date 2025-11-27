@@ -6,7 +6,7 @@ We welcome contributions from the community! Whether you're a developer, a user,
 
 There are several ways you can contribute to this project:
 
-- **Reporting Bugs**: If you find a bug, please open an issue in our [issue tracker](https://github.com/TerexSpace/erp-procee-mining-tkit/issues). Please include a clear description of the bug, a minimal reproducible example, and information about your environment (e.g., Python version, operating system).
+- **Reporting Bugs**: If you find a bug, please open an issue in our [issue tracker](https://github.com/TerexSpace/erp-process-mining-tkit/issues). Please include a clear description of the bug, a minimal reproducible example, and information about your environment (e.g., Python version, operating system).
 - **Suggesting Enhancements**: If you have an idea for a new feature or an improvement to an existing one, please open an issue to discuss it. We're always open to new ideas!
 - **Submitting Pull Requests**: If you've fixed a bug or implemented a new feature, you can submit a pull request. Please make sure your code adheres to our coding standards and includes tests for any new functionality.
 
