@@ -6,25 +6,21 @@ tags:
   - ERP
   - event logs
   - business process management
+  - software paper
 authors:
-  - name: "First Author"
+  - name: "Expert Software Architect"
     orcid: "0000-0000-0000-0000"
     affiliation: 1
-  - name: "Second Author"
-    orcid: "0000-0000-0000-0000"
-    affiliation: "1, 2"
 affiliations:
- - name: "Sample Institution"
+ - name: "Independent"
    index: 1
- - name: "Another Sample Institution"
-   index: 2
 date: "26 November 2025"
 bibliography: reference.lib
 ---
 
 # Summary
 
-`ERP-ProcessMiner` is a Python software package designed to facilitate process mining on data extracted from Enterprise Resource Planning (ERP) systems. The toolkit provides a comprehensive workflow, from loading and transforming relational ERP data into standardized event logs to applying core process mining algorithms for discovery, conformance checking, and performance analysis. With a clean architecture and a focus on usability, `ERP-ProcessMiner` is aimed at researchers, educators, and analysts who need to bridge the gap between complex ERP database schemas and the event-centric view required for process mining.
+`ERP-ProcessMiner` is a Python toolkit for process mining on relational data from Enterprise Resource Planning (ERP) systems. It provides a workflow to transform ERP tables into event logs and apply core process mining algorithms for discovery, conformance, and performance analysis. It enables researchers and practitioners to easily extract process-centric insights from complex ERP database schemas.
 
 # Statement of Need
 
@@ -52,8 +48,14 @@ A common use case is analyzing a procure-to-pay (P2P) process from an ERP system
 
 # Availability and Reuse
 
-`ERP-ProcessMiner` is open-source and distributed under the MIT license. The source code is available on GitHub (https://github.com/example/erp-processminer). The package is available on PyPI and can be installed via `pip`. The software is designed to be extensible, with clear stubs for more advanced algorithms and integrations.
+`ERP-ProcessMiner` is open-source and distributed under the MIT license. The source code is available on GitHub (https://github.com/TerexSpace/erp-procee-mining-tkit). The package is available on PyPI and can be installed via `pip`. The software is designed to be extensible, with clear stubs for more advanced algorithms and integrations.
+
+# Financial Disclosure
+
+The authors have no financial disclosures to report.
 
 # Acknowledgements
 
 We acknowledge the contributions of the open-source community and the developers of the libraries that `ERP-ProcessMiner` builds upon, including `pandas`, `networkx`, and `graphviz`.
+
+# References

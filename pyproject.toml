@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "erp-processminer"
 version = "0.1.0"
 authors = [
-  { name="Expert Software Architect", email="author@example.com" },
+  { name="Expert Software Architect", email="expert@software.com" },
 ]
 description = "A toolkit for process mining on ERP event logs"
 readme = "README.md"
@@ -27,8 +27,8 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/example/erp-processminer"
-"Bug Tracker" = "https://github.com/example/erp-processminer/issues"
+"Homepage" = "https://github.com/TerexSpace/erp-procee-mining-tkit"
+"Bug Tracker" = "https://github.com/TerexSpace/erp-procee-mining-tkit/issues"
 
 [project.scripts]
 erp-processminer = "erp_processminer.cli:main"

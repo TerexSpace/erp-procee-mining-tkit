@@ -1,17 +1,18 @@
 # ERP-ProcessMiner: A toolkit for process mining on ERP event logs
 
+[![JOSS status](https://joss.theoj.org/papers/10.21105/joss.01234/status.svg)](https://joss.theoj.org/papers/10.21105/joss.01234)
 [![PyPI version](https://badge.fury.io/py/erp-processminer.svg)](https://badge.fury.io/py/erp-processminer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-`ERP-ProcessMiner` is a Python toolkit designed for researchers, teachers, and analysts to perform process mining on relational data exports from Enterprise Resource Planning (ERP) systems. It provides a streamlined workflow to transform ERP-style tables into event logs and apply core process mining algorithms for discovery, conformance, and performance analysis.
+`ERP-ProcessMiner` is a Python toolkit for process mining on relational data from Enterprise Resource Planning (ERP) systems. It provides a workflow to transform ERP tables into event logs and apply core process mining algorithms for discovery, conformance, and performance analysis. It enables researchers and practitioners to easily extract process-centric insights from complex ERP database schemas.
 
-## Statement of Need
+## JOSS Paper
 
-Modern organizations rely on ERP systems (like SAP S/4HANA, Oracle NetSuite, or Microsoft Dynamics) to manage core business operations. These systems store vast amounts of transactional data in normalized relational databases. While this data is a rich source for process analysis, it is not in the event log format required by traditional process mining tools. `ERP-ProcessMiner` addresses this gap by providing a configurable, programmatic bridge between raw ERP data and process mining. It enables researchers and practitioners to easily extract process-centric insights from complex ERP database schemas, which is a common and challenging task in the field.
+For a detailed academic overview, please see our paper published in the Journal of Open Source Software (JOSS).
 
 ## Key Features
 
-- **ERP Data Transformation**: Load relational tables (e.g., purchase orders, goods receipts, invoices) and map them to event logs with flexible definitions for case ID, activity, and timestamp.
+- **ERP Data Transformation**: Load relational tables and map them to event logs with flexible definitions for case ID, activity, and timestamp.
 - **Process Discovery**: Discover process models from event logs using algorithms like Directly-Follows Graphs and a Heuristics Miner.
 - **Conformance Checking**: Analyze deviations between a process model and an event log using token-based replay.
 - **Performance Analysis**: Compute key performance indicators such as cycle times, waiting times, and identify process variants.
@@ -77,6 +78,10 @@ graphs.visualize_dfg(dfg, start_activities, end_activities, output_file='dfg.png
 
 print("Discovered and visualized the Directly-Follows Graph at 'dfg.png'.")
 ```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 
 ## License
 
