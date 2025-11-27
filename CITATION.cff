@@ -4,11 +4,11 @@ title: "ERP-ProcessMiner: A toolkit for process mining on ERP event logs"
 version: "0.1.0"
 date-released: 2025-11-27
 authors:
-  - family-names: "Your Last Name"
-    given-names: "Your First Name"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
-    email: "your.email@example.com"
-    affiliation: "Your Institution"
+  - family-names: "Almas"
+    given-names: "Ospanov"
+    orcid: "https://orcid.org/0009-0004-3834-130X"
+    email: "a.ospanov@astanait.edu.kz"
+    affiliation: "Astana IT Univeristy"
 repository-code: "https://github.com/TerexSpace/erp-process-mining-tkit"
 url: "https://github.com/TerexSpace/erp-process-mining-tkit"
 license: MIT
@@ -31,6 +31,6 @@ preferred-citation:
   url: "https://github.com/TerexSpace/erp-process-mining-tkit"
   year: 2025
   authors:
-    - family-names: "Your Last Name"
-      given-names: "Your First Name"
-      orcid: "https://orcid.org/0000-0000-0000-0000"
+    - family-names: Ospanov
+      given-names: Almas
+      orcid: "https://orcid.org/0009-0004-3834-130X"
