@@ -99,3 +99,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Generated output files
+*.png
+*.gv
+p2p_*.csv
+o2c_*.csv
