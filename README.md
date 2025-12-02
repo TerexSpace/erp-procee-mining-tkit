@@ -2,6 +2,9 @@
 
 [![PyPI version](https://badge.fury.io/py/erp-processminer.svg)](https://badge.fury.io/py/erp-processminer)
 [![Tests](https://github.com/TerexSpace/erp-process-mining-tkit/actions/workflows/tests.yml/badge.svg)](https://github.com/TerexSpace/erp-process-mining-tkit/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/gh/TerexSpace/erp-process-mining-tkit/branch/main/graph/badge.svg)](https://codecov.io/gh/TerexSpace/erp-process-mining-tkit)
+[![Documentation Status](https://readthedocs.org/projects/erp-processminer/badge/?version=latest)](https://erp-processminer.readthedocs.io/en/latest/?badge=latest)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17739836.svg)](https://doi.org/10.5281/zenodo.17739836)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 `ERP-ProcessMiner` transforms relational ERP exports into event logs and applies core process mining algorithms for discovery, conformance, and performance analysis. It is designed for researchers, educators, and practitioners who need a lightweight way to bridge ERP schemas with process mining tooling.

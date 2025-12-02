@@ -14,10 +14,10 @@ authors:
 affiliations:
  - name: Astana IT University, Kazakhstan
    index: 1
-   date: 27 November 2025
+date: 27 November 2025
 bibliography: paper.bib
-https://github.com/TerexSpace/erp-procee-mining-tkit.git
-DOI: https://doi.org/10.5281/zenodo.17739836
+repository: https://github.com/TerexSpace/erp-procee-mining-tkit
+doi: 10.5281/zenodo.17739836
 ---
 
 # Summary
@@ -36,9 +36,21 @@ ERP systems record the most authoritative view of operational processes, but the
 
 The toolkit has been designed to support research in business process optimization, compliance checking in procurement workflows, and educational programs teaching process mining fundamentals using realistic ERP data scenarios.
 
-# State of the Field
+# Related Work
 
-ProM and commercial systems such as Celonis offer mature discovery and conformance algorithms, and `pm4py` provides a rich Python API for those algorithms [@verbeek2010prom; @berti2019pm4py]. However, these tools assume that data is already provided as an event log; they do not include reusable utilities for assembling logs from ERP source tables or for teaching that transformation in educational settings. `ERP-ProcessMiner` complements the existing ecosystem by focusing on the ERP data-to-event-log pipeline, while still exposing familiar constructs (Directly-Follows Graphs, Petri nets, token-based replay) to remain compatible with standard process mining concepts.
+ProM and commercial systems such as Celonis offer mature discovery and conformance algorithms, and `pm4py` provides a rich Python API for those algorithms [@verbeek2010prom; @berti2019pm4py]. However, these tools assume that data is already provided as an event log; they do not include reusable utilities for assembling logs from ERP source tables or for teaching that transformation in educational settings.
+
+Prior research on extracting event logs from ERP systems—particularly SAP—has documented the complexity of correlating document tables, deriving case identifiers, and handling change-log data [@ingvaldsen2007; @jans2014]. These studies highlight that the ERP-to-event-log transformation is a significant barrier that often overshadows the process mining analysis itself. `ERP-ProcessMiner` complements the existing ecosystem by focusing on the ERP data-to-event-log pipeline, while still exposing familiar constructs (Directly-Follows Graphs, Petri nets, token-based replay) to remain compatible with standard process mining concepts.
+
+# Functionality
+
+`ERP-ProcessMiner` provides five core modules that together enable end-to-end process mining on ERP data:
+
+1. **ETL (`io_erp`)**: Declarative JSON-based mapping of ERP tables to event logs, with support for flexible case ID correlation, activity derivation from status columns, and timestamp extraction.
+2. **Discovery (`discovery`)**: Algorithms for discovering process models from event logs, including Directly-Follows Graph (DFG) construction and a simplified Heuristics Miner for Petri net synthesis.
+3. **Conformance (`conformance`)**: Token-based replay for quantifying deviations between observed behavior and a process model, returning fitness scores and diagnostic information per trace.
+4. **Performance (`statistics`)**: Cycle time analysis, variant frequency computation, and waiting time calculations to identify bottlenecks and process variations.
+5. **Visualization (`visualization`)**: Graphviz-based rendering of DFGs and Petri nets, plus HTML dashboard generation for rapid exploratory analysis.
 
 # Software Description
 
@@ -78,6 +90,36 @@ dfg, start_acts, end_acts = directly_follows.discover_dfg(event_log)
 ```
 
 Running the command-line interface `erp-processminer erp-to-log mapping.json ...` produces a flat event log. The `discover` subcommand can then mine a Directly-Follows Graph or Petri net and render it using Graphviz. A complete worked end-to-end script is provided in `examples/erp_to_eventlog_p2p.py`.
+
+# Use Cases
+
+Two representative research workflows demonstrate the toolkit's capabilities:
+
+**Use Case 1: Procure-to-Pay Process Discovery with KPI Analysis**
+
+A researcher analyzing procurement efficiency can use the P2P notebook (`docs/tutorials/p2p_from_erp_logs.ipynb`) to:
+
+1. Load ERP tables (purchase orders, goods receipts, invoices) as pandas DataFrames
+2. Apply a declarative mapping to construct an event log
+3. Discover a Directly-Follows Graph and compute cycle time statistics
+4. Identify bottlenecks by examining edge durations and variant frequencies
+
+```bash
+# CLI equivalent
+erp-processminer erp-to-log p2p_mapping.json po.csv gr.csv inv.csv -o p2p_log.csv
+erp-processminer discover p2p_log.csv --method dfg -o p2p_dfg.png
+```
+
+**Use Case 2: Conformance Checking for Compliance Auditing**
+
+An auditor verifying adherence to a reference order-to-cash process can use the conformance notebook (`docs/tutorials/o2c_conformance.ipynb`) to:
+
+1. Load an existing event log or transform ERP data
+2. Discover a Petri net using the Heuristics Miner
+3. Perform token-based replay to identify non-conforming traces
+4. Generate deviation statistics showing which activities cause fitness drops
+
+Both notebooks are designed for reproducibility with seeded random states where applicable, enabling exact replication of results in research settings.
 
 # Availability and Reuse
 
