@@ -1,0 +1,5 @@
+name,erp_pm_loc,pm4py_loc,description,loc_reduction_pct
+Simple (2 tables),12,28,PO Header + Invoice,57.1
+Moderate (4 tables),24,56,Full P2P process,57.1
+Complex (7 tables),42,98,P2P with approvals,57.1
+Enterprise (12 tables),72,168,Multi-process integration,57.1

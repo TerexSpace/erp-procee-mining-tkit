@@ -1,0 +1,165 @@
+% ============================================================================
+% TITLE PAGE - EJISDC SUBMISSION
+% Electronic Journal of Information Systems in Developing Countries
+% ============================================================================
+
+\documentclass[12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% Page setup
+\geometry{a4paper, margin=1in}
+\doublespacing
+
+\begin{document}
+
+% Remove page number from title page
+\thispagestyle{empty}
+
+% ============================================================================
+% TITLE
+% ============================================================================
+
+\begin{center}
+
+{\LARGE \textbf{ERP-ProcessMiner: An Accessible Open-Source Toolkit for Process Mining in Resource-Constrained Educational and Organizational Contexts}}
+
+\vspace{2cm}
+
+% ============================================================================
+% AUTHORS AND AFFILIATIONS
+% ============================================================================
+
+{\large
+\textbf{Almas Ospanov}$^{1,2,*}$ \quad
+\textbf{P. Alonso-Jord\'{a}}$^{3}$ \quad
+\textbf{Ainur Zhumadillayeva}$^{2}$
+}
+
+\vspace{1.5cm}
+
+% ============================================================================
+% AFFILIATIONS
+% ============================================================================
+
+$^{1}$Astana IT University, Astana, Kazakhstan
+
+\vspace{0.3cm}
+
+$^{2}$L.N. Gumilyov Eurasian National University, Astana, Kazakhstan
+
+\vspace{0.3cm}
+
+$^{3}$Universitat Polit\`{e}cnica de Val\`{e}ncia, Valencia, Spain
+
+\vspace{2cm}
+
+% ============================================================================
+% CORRESPONDING AUTHOR
+% ============================================================================
+
+$^{*}$\textbf{Corresponding Author:}
+
+\vspace{0.5cm}
+
+Almas Ospanov
+
+Email: \href{mailto:222134@astanait.edu.kz}{222134@astanait.edu.kz}
+
+Astana IT University
+
+Mangilik El C1, Astana 010000, Kazakhstan
+
+\vspace{2cm}
+
+% ============================================================================
+% SUBMISSION DETAILS
+% ============================================================================
+
+\textbf{Manuscript Type:} Original Research Article
+
+\vspace{0.5cm}
+
+\textbf{Word Count:} Approximately 8,500 words (excluding references)
+
+\vspace{0.5cm}
+
+\textbf{Number of Figures:} 5
+
+\vspace{0.5cm}
+
+\textbf{Number of Tables:} 3
+
+\vspace{0.5cm}
+
+\textbf{Submission Date:} December 6, 2025
+
+\end{center}
+
+\newpage
+
+% ============================================================================
+% ABSTRACT PAGE
+% ============================================================================
+
+\begin{center}
+{\Large \textbf{Abstract}}
+\end{center}
+
+\vspace{1cm}
+
+Process mining offers significant potential for improving organizational efficiency by extracting actionable insights from operational data. However, adoption in developing countries faces barriers including software complexity, licensing costs, and steep learning curves. This paper presents ERP-ProcessMiner, an open-source Python toolkit designed specifically for accessibility in resource-constrained contexts. The toolkit addresses the critical preprocessing stage of transforming Enterprise Resource Planning (ERP) data into event logs through a declarative JSON-based configuration system with validation-first semantics.
+
+We evaluate ERP-ProcessMiner against the established pm4py library across four dimensions: (1) code complexity reduction, (2) discovery quality, (3) computational resource efficiency, and (4) educational accessibility. Results from experiments on synthetic procure-to-pay datasets demonstrate that ERP-ProcessMiner reduces preprocessing code by 57.1\%, requires 35\% less memory, and provides superior error handling for novice users. While pm4py achieves higher fitness scores (1.00 vs 0.76), ERP-ProcessMiner's design trade-offs favor rapid prototyping, classroom instruction, and first-time process mining implementations in organizations with limited technical expertise.
+
+The toolkit is freely available under the MIT license, eliminating licensing barriers for educational institutions and small enterprises in developing economies.
+
+\vspace{1.5cm}
+
+\textbf{Keywords:} Process mining; ERP systems; Open-source software; Developing countries; ICT for development; Educational technology
+
+\newpage
+
+% ============================================================================
+% DECLARATIONS PAGE
+% ============================================================================
+
+\begin{center}
+{\Large \textbf{Declarations}}
+\end{center}
+
+\vspace{1cm}
+
+\subsection*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\subsection*{Conflicts of Interest}
+The authors declare no conflicts of interest.
+
+\subsection*{Data Availability}
+The source code, experimental scripts, and synthetic datasets are publicly available:
+\begin{itemize}
+    \item GitHub Repository: \url{https://github.com/TerexSpace/erp-process-mining-tkit}
+    \item Replication Package: Zenodo DOI to be added upon acceptance
+\end{itemize}
+The synthetic datasets are generated deterministically using the provided scripts. Configuration files and all experimental parameters are included to ensure full reproducibility.
+
+\subsection*{Ethics Statement}
+This study involves software development and evaluation using synthetic data. No human subjects, animal subjects, or sensitive data were involved. Ethical approval was not required.
+
+\subsection*{Author Contributions (CRediT Taxonomy)}
+\begin{itemize}
+    \item \textbf{Almas Ospanov:} Conceptualization, Methodology, Software, Validation, Formal Analysis, Investigation, Writing -- Original Draft, Visualization, Project Administration
+    \item \textbf{P. Alonso-Jord\'{a}:} Methodology, Validation, Writing -- Review \& Editing, Supervision
+    \item \textbf{Ainur Zhumadillayeva:} Resources, Writing -- Review \& Editing, Supervision
+\end{itemize}
+
+\subsection*{Acknowledgments}
+The authors thank the anonymous reviewers for their constructive feedback. We also thank the developers of pm4py, pandas, NetworkX, and Graphviz for their excellent open-source contributions.
+
+\end{document}

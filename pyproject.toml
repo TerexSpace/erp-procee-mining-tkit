@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "erp-processminer"
 version = "0.1.0"
 authors = [
-  { name="Your Name", email="your.email@example.com" },
+  { name="Almas Ospanov", email="a.ospanov@astanait.edu.kz" },
 ]
 description = "A toolkit for process mining on ERP event logs"
 readme = "README.md"

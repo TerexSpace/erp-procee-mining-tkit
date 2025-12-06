@@ -1,0 +1,63 @@
+% Auto-generated LaTeX tables for COR paper
+
+
+\begin{table}[htbp]
+\centering
+\caption{Process Discovery Quality Metrics (RQ1)}
+\label{tab:discovery_quality}
+\begin{tabular}{l|cc|cc|cc}
+\toprule
+\textbf{Dataset} & \multicolumn{2}{c|}{\textbf{Fitness}} & \multicolumn{2}{c|}{\textbf{Precision}} & \multicolumn{2}{c}{\textbf{F-score}} \\
+& ERP-PM & pm4py & ERP-PM & pm4py & ERP-PM & pm4py \\
+\midrule
+P2P-500 & 0.914 & 0.984 & 0.800 & 1.000 & 0.853 & 0.992 \\
+P2P-1000 & 0.876 & 0.982 & 0.831 & 1.000 & 0.853 & 0.991 \\
+P2P-2500 & 0.887 & 0.982 & 0.834 & 1.000 & 0.859 & 0.991 \\
+P2P-5000 & 0.865 & 0.982 & 0.831 & 1.000 & 0.848 & 0.991 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{Preprocessing Effort Comparison (RQ2)}
+\label{tab:preprocessing_effort}
+\begin{tabular}{l|r|rr|r}
+\toprule
+\textbf{Scenario} & \textbf{Custom ETL} & \textbf{ERP-PM Code} & \textbf{Config} & \textbf{Reduction} \\
+\midrule
+Simple P2P & 35 & 12 & 8 & 43\% \\
+Standard P2P & 62 & 18 & 14 & 48\% \\
+Complex P2P & 94 & 26 & 20 & 51\% \\
+O2C Process & 78 & 22 & 16 & 51\% \\
+Multi-Entity & 112 & 32 & 24 & 50\% \\
+\midrule
+\textbf{Average} & & & & \textbf{49\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{Scalability Analysis (RQ3) - Execution Time in Seconds}
+\label{tab:scalability}
+\begin{tabular}{r|r|cc|cc}
+\toprule
+\textbf{Cases} & \textbf{Events} & \multicolumn{2}{c|}{\textbf{ERP-ProcessMiner}} & \multicolumn{2}{c}{\textbf{pm4py}} \\
+& & Mapping & Discovery & Conv. & Discovery \\
+\midrule
+100.0 & 795.0 & 0.079 & 0.002 & 0.008 & 0.000 \\
+250.0 & 1,986.0 & 0.199 & 0.004 & 0.015 & 0.001 \\
+500.0 & 3,979.0 & 0.398 & 0.008 & 0.026 & 0.002 \\
+1,000.0 & 7,937.0 & 0.777 & 0.015 & 0.133 & 0.003 \\
+2,500.0 & 19,832.0 & 1.938 & 0.034 & 0.130 & 0.006 \\
+5,000.0 & 39,700.0 & 3.783 & 0.065 & 0.217 & 0.104 \\
+7,500.0 & 59,562.0 & 5.470 & 0.098 & 0.423 & 0.122 \\
+10,000.0 & 79,442.0 & 7.656 & 0.141 & 0.623 & 0.019 \\
+\bottomrule
+\end{tabular}
+\end{table}

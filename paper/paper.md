@@ -8,13 +8,28 @@ tags:
   - business process management
 authors:
   - name: Almas Ospanov
-    orcid: 0009-0004-3834-130X
+    orcid: https://orcid.org/0009-0004-3834-130X.
     corresponding: true
-    affiliation: 1
+    affiliation: 1, 2
+  - name: P. Alonso-Jordá
+    orcid: https://orcid.org/0000-0002-6882-6592
+    corresponding: true
+    affiliation: 3
+  - name: Ainur Zhumadillayeva
+    orcid: https://orcid.org/0000-0003-1042-0415.
+    corresponding: true
+    affiliation: 2
+    
+    
 affiliations:
- - name: Astana IT University, Kazakhstan
+ - name: Astana IT University, Astana, Kazakhstan
    index: 1
-   date: 27 November 2025
+ - name: L.N. Gumilyov Eurasian National University, Astana, Kazakhstan
+   index: 2
+ - name: Universitat Politècnica de València, Valencia, Spain
+   index: 3
+      
+date: 07 December 2025
 bibliography: paper.bib
 https://github.com/TerexSpace/erp-procee-mining-tkit.git
 DOI: https://doi.org/10.5281/zenodo.17739836

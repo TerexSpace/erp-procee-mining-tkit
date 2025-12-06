@@ -1,0 +1,6 @@
+Scenario,Description,Custom_ETL_LOC,ERP_PM_Code_LOC,ERP_PM_Config_LOC,ERP_PM_Total_LOC,Reduction_Pct
+Simple P2P,"2 tables (PO, Invoice)",35,12,8,20,42.9
+Standard P2P,"4 tables (PO, GR, Invoice, Payment)",62,18,14,32,48.4
+Complex P2P,6 tables with joins,94,26,20,46,51.1
+O2C Process,Order-to-Cash (5 tables),78,22,16,38,51.3
+Multi-Entity,Multiple case IDs,112,32,24,56,50.0

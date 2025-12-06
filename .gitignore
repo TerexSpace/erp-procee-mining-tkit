@@ -99,3 +99,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# EJISDC Submission - Exclude intermediate/generated files
+# Keep: paper/ejisdc_paper.tex, paper/references.bib, experiments/ejisdc_experiments.py
+# Exclude generated outputs and temporary files
+EJISDC/experiments/ejisdc/*.png
+EJISDC/experiments/ejisdc/*.pdf
+EJISDC/paper/*.png
+EJISDC/paper/*.pdf
+EJISDC/experiments/ejisdc/ejisdc_tables.tex
+
+# Keep CSVs for reproducibility, exclude binary outputs
